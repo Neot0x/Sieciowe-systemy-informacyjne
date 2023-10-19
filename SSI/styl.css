@@ -64,3 +64,13 @@ li {
 img {
     width: auto;
 }
+
+article {
+    border-style: solid;
+    border-radius: 10px;
+    margin-bottom: 10%;
+}
+
+article h4{
+    text-align: center;
+}
