@@ -74,3 +74,8 @@ article {
 article h4{
     text-align: center;
 }
+
+.error{
+    color: red;
+    font-size: 80%;
+}
