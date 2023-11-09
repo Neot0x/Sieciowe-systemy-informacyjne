@@ -18,17 +18,29 @@
         Sekcja komentarzy: <br>
         <span class = 'error'>* pola wymagane</span>
         <form action = ".htmlspecialchars($_SERVER['PHP_SELF'])." method = 'post'>
-        Twój nick: <input type = 'text' name = 'nick'><span class = 'error'>* </span><br>
-        Twój email: <input type = 'text' name = 'email'><span class = 'error'>* </span><br>
-        Treść Twojego komentarza: <br><textarea name = 'komentarz' rows = '5' cols = '40'></textarea>
-        <span class = 'error'>* </span><br>
+        <label for = 'nick'>Twój nick: </label>
+        <input type = 'text' name = 'nick'><span class = 'error'>* </span><br>
+        <label for = 'email'>Twój email: </label>
+        <input type = 'text' name = 'email'><span class = 'error'>* </span><br>
+        <label>Treść Twojego komentarza: </label>
+        <br><textarea name = 'komentarz' rows = '5' cols = '40'></textarea>
+        <span class = 'error'>* </span><br>";
+        $a = rand(0, 9);
+        $b = rand(0, 10 - $a);
+        echo("Ile to ".$a." + ".$b." ?");
+        $captcha_result = $a + $b;
+        echo("
+        <input type = 'number' min = '0' max = '10'><br>
         <input type = 'submit'>
         </form>
-        </article>";
+        </article>");
     }
+
+
 
     $nick = $email = $komentarz ="";
     $nickErr = $emailErr = $komentarzErr ="";
+    
     //$nick = $_POST["nick"];
     //$email = $_POST["email"];
     //$tresc = $_POST["komentarz"];
@@ -52,6 +64,7 @@
         }else{
             $nick = test_input($_POST["komentarz"]);
         }
+
     }
 
     function test_input($data){
@@ -60,6 +73,7 @@
         $data = htmlspecialchars($data);
         return $data;
     }
+
 
 echo "Twój nick to: ".$nick." Twój email to: ".$email." <br> Twój komentarz: <br>".$komentarz;
 
